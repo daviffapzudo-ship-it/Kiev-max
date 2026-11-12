@@ -130,3 +130,21 @@ if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator
 loadHome();
 </script>
 </body></html>
+<div id="kiev-player" style="display:none;position:fixed;inset:0;background:#080510;z-index:99999;padding:20px;color:white;overflow:auto">
+  <button onclick="document.getElementById('kiev-player').style.display='none'" style="background:#a020f0;color:white;padding:12px;border:0;border-radius:8px">← Voltar</button>
+  <h2 style="color:#c77dff;text-align:center">KIEV MAX PLAYER</h2>
+  <video id="kiev-video" controls playsinline style="width:100%;margin-top:25px;background:black;border-radius:12px"></video>
+  <input id="kiev-video-url" placeholder="Cole o link do vídeo autorizado" style="width:100%;padding:14px;margin-top:15px;box-sizing:border-box">
+  <button onclick="kievPlay()" style="background:#8a2be2;color:white;padding:14px;border:0;border-radius:8px;margin-top:10px;width:100%">▶ ASSISTIR</button>
+</div>
+
+<script>
+function kievPlay(){
+  const url=document.getElementById('kiev-video-url').value.trim();
+  if(!url){alert('Cole o link do vídeo primeiro!');return;}
+  const video=document.getElementById('kiev-video');
+  video.src=url;
+  document.getElementById('kiev-player').style.display='block';
+  video.play().catch(()=>alert('Não foi possível reproduzir esse vídeo.'));
+}
+</script>
