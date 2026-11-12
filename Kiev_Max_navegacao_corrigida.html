@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10091b">
+<meta name="description" content="Kiev Max — descubra filmes, séries, animes, novelas, K-dramas e desenhos.">
+<link rel="manifest" href="manifest.json">
+<title>Kiev Max</title>
+<style>
+:root{--bg:#0b0711;--panel:#151020;--panel2:#20152f;--purple:#a855f7;--pink:#e879f9;--text:#f8f4ff;--muted:#b8a9c9;--line:#30213f}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3b1760 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;color:inherit}.top{position:sticky;top:0;z-index:5;background:#10091beF;backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px max(16px,calc((100vw - 1250px)/2));display:flex;align-items:center;gap:18px}
+.logo{font-weight:1000;font-size:24px;letter-spacing:-1px;background:linear-gradient(90deg,#c084fc,#f0abfc);color:transparent;background-clip:text;white-space:nowrap}.logo small{display:block;font-size:9px;letter-spacing:3px;color:#c4a5fd}
+.nav{display:flex;gap:7px;overflow:auto;flex:1}.nav button,.chip,.ghost{border:1px solid transparent;background:transparent;padding:9px 12px;border-radius:12px;color:var(--muted);white-space:nowrap}.nav button.active,.chip.active{background:#5b21b6;color:white;border-color:#a855f7}
+.top-actions{display:flex;gap:8px}.iconbtn{border:1px solid var(--line);background:var(--panel);width:40px;height:40px;border-radius:12px}
+main{max-width:1250px;margin:auto;padding:22px 18px 100px}.hero{border:1px solid #6932a0;border-radius:24px;min-height:245px;padding:28px;display:flex;align-items:end;position:relative;overflow:hidden;background:linear-gradient(100deg,#1b0c2c 0%,#32104c 55%,#13091d 100%);margin-bottom:26px}
+.hero:after{content:"KM";position:absolute;right:6%;top:4%;font-size:clamp(100px,23vw,250px);font-weight:1000;color:#ffffff0b;letter-spacing:-18px}
+.hero-content{position:relative;z-index:1;max-width:600px}.eyebrow{color:#d8b4fe;text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(30px,5vw,52px);margin:8px 0}.hero p{color:#d7c8e7;max-width:520px}.primary{background:linear-gradient(100deg,#9333ea,#c026d3);border:0;border-radius:12px;padding:12px 17px;font-weight:800;box-shadow:0 7px 25px #a855f755}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:25px 0 13px}.section-head h2{font-size:19px;margin:0}.muted{color:var(--muted);font-size:13px}
+.chips{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.chip{border-color:var(--line);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(142px,1fr));gap:16px}.card{min-width:0;cursor:pointer}.poster{width:100%;aspect-ratio:2/3;border-radius:15px;background:linear-gradient(140deg,#32104d,#151020);object-fit:cover;border:1px solid #ffffff15;display:block;transition:.2s}.card:hover .poster{transform:translateY(-4px);box-shadow:0 10px 30px #a855f733}.card h3{font-size:13px;margin:8px 2px 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card .meta{font-size:11px;color:var(--muted);margin:0 2px}.searchbar{display:flex;gap:9px;margin:14px 0}.searchbar input,.settings input{width:100%;background:#160f21;border:1px solid #49335e;border-radius:13px;color:white;padding:13px 15px;outline:none}.searchbar input:focus,.settings input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #a855f722}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px;margin:15px 0}.hidden{display:none!important}.empty{text-align:center;padding:40px 12px;color:var(--muted)}.loading{text-align:center;padding:28px;color:#d8b4fe}
+.bottom{display:none}.modal{position:fixed;inset:0;background:#05030acc;z-index:10;display:none;overflow:auto;padding:18px}.modal.show{display:block}.dialog{max-width:850px;margin:3vh auto;background:#130d1d;border:1px solid #573578;border-radius:22px;overflow:hidden;box-shadow:0 20px 90px #000}.detail-hero{min-height:270px;padding:24px;display:flex;align-items:end;background:linear-gradient(0deg,#130d1d 0%,#130d1d88 65%,#130d1d55),linear-gradient(120deg,#4c1d68,#160d24);background-position:center;background-size:cover;position:relative}.close{position:absolute;right:15px;top:15px;background:#10091bcc;border:1px solid #ffffff33;border-radius:50%;width:40px;height:40px;font-size:22px}.detail-body{padding:22px}.detail-body h2{font-size:28px;margin:0 0 7px}.detail-actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.season{background:#1c1428;border:1px solid var(--line);padding:13px;border-radius:13px;margin:9px 0}.episode{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.episode b{color:#d8b4fe}.settings label{display:block;margin:13px 0 7px;color:var(--muted);font-size:13px}.settings small{color:var(--muted);line-height:1.5}.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#29183a;border:1px solid #a855f7;padding:11px 16px;border-radius:12px;z-index:20;display:none}
+@media(max-width:700px){.top{padding:10px 13px;flex-wrap:wrap;gap:10px}.logo{font-size:21px}.nav{order:3;flex-basis:100%;padding-bottom:2px}.nav button{font-size:12px;padding:8px 10px}.top-actions{margin-left:auto}main{padding:15px 13px 90px}.hero{min-height:230px;padding:21px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.card h3{font-size:12px}.bottom{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:6;background:#10091bf2;border-top:1px solid var(--line);justify-content:space-around;padding:9px 5px calc(9px + env(safe-area-inset-bottom));backdrop-filter:blur(15px)}.bottom button{background:none;border:0;color:var(--muted);font-size:11px;display:grid;gap:3px;justify-items:center}.bottom button.active{color:#d8b4fe}.bottom span{font-size:19px}.detail-hero{min-height:240px}.modal{padding:8px}.dialog{margin:1vh auto}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="logo">KIEV MAX<small>SEU UNIVERSO DE ENTRETENIMENTO</small></div>
+ <nav class="nav" id="nav">
+  <button class="active" data-page="home">Início</button><button data-type="movie">Filmes</button><button data-type="tv">Séries</button><button data-cat="anime">Animes</button><button data-cat="novela">Novelas</button><button data-cat="kdrama">K-dramas</button><button data-cat="cartoon">Desenhos</button>
+ </nav>
+ <div class="top-actions"><button class="iconbtn" id="searchShortcut" aria-label="Pesquisar">⌕</button><button class="iconbtn" id="settingsBtn" aria-label="Configurações">⚙</button></div>
+</header>
+<noscript><div style="margin:12px;padding:16px;background:#32104c;color:white;border:1px solid #a855f7;border-radius:12px">O Kiev Max precisa de JavaScript ativado. Abra este arquivo no Google Chrome ou outro navegador atualizado, não no visualizador de arquivos.</div></noscript>
+<main>
+ <section id="homePage">
+  <div class="hero"><div class="hero-content"><div class="eyebrow">Bem-vindo ao seu streaming</div><h1>Seu próximo favorito está aqui.</h1><p>Explore filmes e séries, descubra novidades e acompanhe temporadas e episódios.</p><button class="primary" id="exploreBtn">Explorar catálogo</button></div></div>
+  <div class="section-head"><h2>Em alta</h2><span class="muted">Descubra novidades</span></div><div id="trending" class="grid"><div class="loading">Configure sua chave do catálogo para carregar títulos reais.</div></div>
+  <div class="section-head"><h2>Filmes populares</h2></div><div id="popularMovies" class="grid"></div>
+  <div class="section-head"><h2>Séries populares</h2></div><div id="popularTV" class="grid"></div>
+ </section>
+ <section id="searchPage" class="hidden">
+  <div class="section-head"><h2>Pesquisar no Kiev Max</h2></div>
+  <div class="searchbar"><input id="query" type="search" placeholder="Digite filme, série, anime, novela..." autocomplete="off"><button class="primary" id="searchBtn">Buscar</button></div>
+  <div class="chips" id="searchFilters"><button class="chip active" data-filter="multi">Tudo</button><button class="chip" data-filter="movie">Filmes</button><button class="chip" data-filter="tv">Séries</button></div>
+  <div id="searchStatus" class="muted">Pesquise por nome, título original ou palavra-chave.</div><div id="searchResults" class="grid"></div>
+ </section>
+ <section id="categoryPage" class="hidden"><div class="section-head"><h2 id="categoryTitle">Catálogo</h2><span class="muted" id="categoryHint"></span></div><div class="grid" id="categoryResults"></div></section>
+ <section id="favoritesPage" class="hidden"><div class="section-head"><h2>Minha lista</h2></div><div class="grid" id="favorites"></div></section>
+ <section id="settingsPage" class="hidden settings">
+  <div class="section-head"><h2>Configurações</h2></div><div class="panel">
+   <h3>Catálogo online — TMDB</h3><p class="muted">Use sua chave de API v3 para pesquisar títulos reais, capas, sinopses, temporadas e episódios.</p>
+   <label for="apiKey">Chave API v3 (não é sua senha)</label><input id="apiKey" type="password" placeholder="Cole sua chave do TMDB">
+   <div class="detail-actions"><button class="primary" id="saveKey">Salvar chave</button><button class="ghost" id="clearKey">Apagar chave</button></div>
+   <small>Crie uma conta em themoviedb.org, solicite uma chave de API nas configurações da conta e cole aqui. A chave fica salva somente neste navegador. Não compartilhe sua chave.</small>
+  </div>
+  <div class="panel"><h3>Instalar no celular</h3><p class="muted">Abra este projeto em um endereço HTTPS e use o menu do navegador → “Instalar app” ou “Adicionar à tela inicial”. O modo PWA depende de hospedagem HTTPS.</p></div>
+  <div class="panel"><h3>Sobre o Kiev Max</h3><p class="muted">Aplicativo independente para descoberta de entretenimento. Os dados de catálogo vêm do TMDB. Kiev Max não é afiliado ao TMDB.</p></div>
+ </section>
+</main>
+<nav class="bottom"><button class="active" data-page="home"><span>⌂</span>Início</button><button data-page="search"><span>⌕</span>Buscar</button><button data-page="favorites"><span>♡</span>Minha lista</button><button data-page="settings"><span>⚙</span>Ajustes</button></nav>
+<div class="modal" id="modal"><div class="dialog"><div class="detail-hero" id="detailHero"><button class="close" id="closeModal">×</button><div><div class="eyebrow" id="detailTag"></div><h2 id="detailTitle"></h2><div class="muted" id="detailMeta"></div></div></div><div class="detail-body"><p id="detailOverview" class="muted"></p><div class="detail-actions" id="detailActions"></div><div id="seasonArea"></div></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const API='https://api.themoviedb.org/3', IMG='https://image.tmdb.org/t/p/w500', BACK='https://image.tmdb.org/t/p/w1280';
+let key=localStorage.getItem('kiev_tmdb_key')||'', currentFilter='multi', debounce=null;
+const $=id=>document.getElementById(id);
+$('apiKey').value=key;
+function toast(s){$('toast').textContent=s;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',2600)}
+function page(name){['homePage','searchPage','categoryPage','favoritesPage','settingsPage'].forEach(x=>$(x).classList.add('hidden'));$(name+'Page').classList.remove('hidden');document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo(0,0);if(name==='favorites')renderFavorites()}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>page(b.dataset.page));
+$('searchShortcut').onclick=()=>{page('search');setTimeout(()=>$('query').focus(),80)};
+$('exploreBtn').onclick=()=>{$('searchShortcut').click()};
+$('settingsBtn').onclick=()=>page('settings');
+$('saveKey').onclick=()=>{key=$('apiKey').value.trim();if(!key){toast('Cole uma chave válida primeiro.');return}localStorage.setItem('kiev_tmdb_key',key);toast('Chave salva! Carregando catálogo...');loadHome()};
+$('clearKey').onclick=()=>{key='';$('apiKey').value='';localStorage.removeItem('kiev_tmdb_key');toast('Chave removida.')};
+async function api(path){if(!key)throw Error('Adicione sua chave do TMDB em Configurações.');let sep=path.includes('?')?'&':'?';let r=await fetch(API+path+sep+'api_key='+encodeURIComponent(key)+'&language=pt-BR');if(!r.ok)throw Error(r.status===401?'Chave inválida ou não autorizada.':'Erro ao consultar catálogo ('+r.status+').');return r.json()}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function cardHTML(x){let title=x.title||x.name||x.original_title||x.original_name||'Sem título',year=(x.release_date||x.first_air_date||'').slice(0,4),type=x.media_type||(x.title?'movie':'tv'),poster=x.poster_path?IMG+x.poster_path:'';return `<article class="card" data-id="${x.id}" data-type="${type}"><img class="poster" loading="lazy" src="${poster||''}" alt="Pôster de ${esc(title)}" onerror="this.style.background='linear-gradient(140deg,#472064,#151020)'"><h3>${esc(title)}</h3><p class="meta">${type==='movie'?'Filme':'Série'} ${year?'• '+year:''} ${x.vote_average?'• ★ '+Number(x.vote_average).toFixed(1):''}</p></article>`}
+function renderCards(target,items){$(target).innerHTML=items?.length?items.map(cardHTML).join(''):'<div class="empty">Nenhum título encontrado.</div>';$(target).querySelectorAll('.card').forEach(c=>c.onclick=()=>details(c.dataset.type,c.dataset.id))}
+async function loadHome(){if(!key){$('trending').innerHTML='<div class="empty">Abra ⚙ Configurações e adicione sua chave gratuita do TMDB para carregar títulos reais.</div>';return}try{let [t,m,v]=await Promise.all([api('/trending/all/week'),api('/movie/popular'),api('/tv/popular')]);renderCards('trending',t.results.slice(0,12));renderCards('popularMovies',m.results.slice(0,8).map(x=>({...x,media_type:'movie'})));renderCards('popularTV',v.results.slice(0,8).map(x=>({...x,media_type:'tv'})))}catch(e){$('trending').innerHTML='<div class="empty">'+esc(e.message)+'</div>';toast(e.message)}}
+async function search(){let q=$('query').value.trim();if(!q)return; if(!key){$('searchStatus').textContent='Adicione sua chave TMDB em Configurações para pesquisar títulos reais.';return}$('searchStatus').textContent='Pesquisando...';$('searchResults').innerHTML='';try{let path=currentFilter==='multi'?'/search/multi?query=':'/search/'+currentFilter+'?query=';let d=await api(path+encodeURIComponent(q));let results=(d.results||[]).filter(x=>['movie','tv'].includes(x.media_type||currentFilter));$('searchStatus').textContent=results.length+' resultado(s) encontrado(s).';renderCards('searchResults',results)}catch(e){$('searchStatus').textContent=e.message}}
+$('searchBtn').onclick=search;$('query').addEventListener('keydown',e=>{if(e.key==='Enter')search()});$('query').addEventListener('input',()=>{clearTimeout(debounce);if($('query').value.trim().length>2)debounce=setTimeout(search,550)});
+$('searchFilters').querySelectorAll('button').forEach(b=>b.onclick=()=>{currentFilter=b.dataset.filter;$('searchFilters').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));if($('query').value.trim())search()});
+// Navegação delegada: continua funcionando mesmo se o conteúdo da navegação for recriado.
+document.querySelector('.nav').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.type){category(b.dataset.type,b.textContent.trim());return;}
+  if(b.dataset.cat){category('tv',b.textContent.trim(),b.dataset.cat);return;}
+  if(b.dataset.page){page(b.dataset.page);}
+});
+window.kievOpenCategory=(type,label,cat)=>category(type,label,cat);
+
+async function category(type,label,cat){
+  page('category');
+  $('categoryTitle').textContent=label;
+  $('categoryHint').textContent='Catálogo online';
+  $('categoryResults').innerHTML='<div class="loading">Carregando '+esc(label)+'...</div>';
+  if(!key){
+    $('categoryHint').textContent='Configuração necessária';
+    $('categoryResults').innerHTML='<div class="panel" style="grid-column:1/-1;text-align:center;padding:28px"><h3>Ative o catálogo do Kiev Max</h3><p class="muted">O botão está funcionando! Para mostrar filmes reais, precisamos conectar a chave gratuita do TMDB. Ela também libera capas, sinopses e detalhes.</p><button class="primary" id="goSettingsFromCategory">Configurar catálogo</button></div>';
+    $('goSettingsFromCategory').onclick=()=>page('settings');
+    return;
+  }
+  try{
+    let path='/discover/'+type+'?sort_by=popularity.desc';
+    if(cat==='anime')path+='&with_genres=16&with_original_language=ja';
+    if(cat==='kdrama')path+='&with_original_language=ko';
+    if(cat==='cartoon')path+='&with_genres=16';
+    if(cat==='novela')path+='&with_original_language=pt';
+    let d=await api(path);
+    renderCards('categoryResults',(d.results||[]).map(x=>({...x,media_type:type})).slice(0,30));
+    $('categoryHint').textContent=(d.results||[]).length+' títulos nesta página';
+  }catch(e){
+    $('categoryResults').innerHTML='<div class="panel" style="grid-column:1/-1;text-align:center;padding:28px"><h3>Não foi possível carregar '+esc(label)+'</h3><p class="muted">'+esc(e.message)+'</p><button class="primary" id="retryCategory">Tentar novamente</button></div>';
+    $('retryCategory').onclick=()=>category(type,label,cat);
+  }
+}
+function favs(){return JSON.parse(localStorage.getItem('kiev_favs')||'[]')}
+function isFav(type,id){return favs().some(x=>x.id==id&&x.type===type)}
+function toggleFav(item){let a=favs(),i=a.findIndex(x=>x.id==item.id&&x.type===item.type);if(i>=0)a.splice(i,1);else a.push(item);localStorage.setItem('kiev_favs',JSON.stringify(a));toast(i>=0?'Removido da sua lista':'Adicionado à sua lista');}
+function renderFavorites(){let a=favs();$('favorites').innerHTML=a.length?a.map(x=>`<article class="card" data-id="${x.id}" data-type="${x.type}"><img class="poster" src="${x.poster||''}" alt=""><h3>${esc(x.title)}</h3><p class="meta">${x.type==='movie'?'Filme':'Série'}</p></article>`).join(''):'<div class="empty">Sua lista está vazia. Abra um título e toque em “Minha lista”.</div>';$('favorites').querySelectorAll('.card').forEach(c=>c.onclick=()=>details(c.dataset.type,c.dataset.id))}
+async function details(type,id){$('modal').classList.add('show');$('detailTitle').textContent='Carregando...';$('detailOverview').textContent='';$('seasonArea').innerHTML='';$('detailActions').innerHTML='';try{let d=await api('/'+type+'/'+id);let title=d.title||d.name;let poster=d.backdrop_path?BACK+d.backdrop_path:(d.poster_path?IMG+d.poster_path:'');$('detailHero').style.backgroundImage=`linear-gradient(0deg,#130d1d 0%,#130d1d88 65%,#130d1d55),url("${poster}")`;$('detailTitle').textContent=title;$('detailTag').textContent=type==='movie'?'FILME':'SÉRIE';$('detailMeta').textContent=(d.release_date||d.first_air_date||'').slice(0,4)+'  •  ★ '+(d.vote_average||'—')+'  •  '+(d.original_language||'').toUpperCase();$('detailOverview').textContent=d.overview||'Sinopse não disponível.';let item={id:d.id,type,title,poster:d.poster_path?IMG+d.poster_path:''};$('detailActions').innerHTML=`<button class="primary" id="favBtn">${isFav(type,id)?'♥ Na minha lista':'♡ Minha lista'}</button><button class="ghost" id="shareBtn">Compartilhar</button>`;$('favBtn').onclick=()=>{toggleFav(item);$('favBtn').textContent=isFav(type,id)?'♥ Na minha lista':'♡ Minha lista'};$('shareBtn').onclick=()=>navigator.share?navigator.share({title,url:location.href}):toast('Compartilhamento não disponível neste navegador');if(type==='tv'){let seasons=(d.seasons||[]).filter(s=>s.season_number>0);$('seasonArea').innerHTML='<h3>Temporadas e episódios</h3>'+ (seasons.length?seasons.map(s=>`<div class="season"><b>${esc(s.name)}</b> <span class="muted"> • ${s.episode_count} episódio(s)</span><div id="season-${s.season_number}"><button class="ghost" onclick="loadSeason('${id}',${s.season_number})">Ver episódios</button></div></div>`).join(''):'<p class="muted">Temporadas não disponíveis no catálogo.</p>')}else if(d.runtime){$('seasonArea').innerHTML='<p class="muted">Duração: '+d.runtime+' minutos</p>'}}catch(e){$('detailTitle').textContent='Não foi possível carregar';$('detailOverview').textContent=e.message}}
+async function loadSeason(id,n){let box=$('season-'+n);box.innerHTML='Carregando episódios...';try{let d=await api('/tv/'+id+'/season/'+n);box.innerHTML=(d.episodes||[]).map(e=>`<div class="episode"><b>${String(e.episode_number).padStart(2,'0')}</b><div><strong>${esc(e.name)}</strong><div class="muted">${esc(e.overview||'Sinopse não disponível.')}</div></div></div>`).join('')||'Sem episódios listados.'}catch(e){box.textContent=e.message}}
+$('closeModal').onclick=()=>$('modal').classList.remove('show');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('show')};
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+loadHome();
+</script>
+</body></html>
